@@ -1,0 +1,47 @@
+{
+  "name": "bootstrap-project",
+  "version": "1.0.0",
+  "description": "Hexlet Bootstrap Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valmlord/layout-designer-bootstrap-project-59.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "pug",
+    "sass",
+    "npm",
+    "gulp"
+  ],
+  "author": "Stepan Korshukov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/valmlord/layout-designer-bootstrap-project-59/issues"
+  },
+  "homepage": "https://github.com/valmlord/layout-designer-bootstrap-project-59#readme",
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.2",
+    "gulp": "^5.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-debug": "^5.0.1",
+    "gulp-plumber": "^1.2.1",
+    "gulp-pug": "^5.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-surge": "^0.1.4",
+    "gulp-svg-sprite": "^2.0.3",
+    "plumber": "^0.4.8",
+    "sass": "^1.77.6",
+    "stylelint": "^16.7.0",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^36.0.1",
+    "stylelint-order": "^6.0.4",
+    "stylelint-scss": "^6.4.1"
+  }
+}
