@@ -3,22 +3,25 @@ const sass = require("gulp-sass")(require("sass"));
 const pug = require("gulp-pug");
 const concat = require("gulp-concat");
 const surge = require("gulp-surge");
-const svgSprite = require("gulp-svg-sprite");
 const browserSync = require("browser-sync").create();
 
 const buildCSS = () => {
   console.log("SASS Compile");
 
   return src("app/sass/*.scss")
-    .pipe(sass())
-    .pipe(concat("style.css"))
-    .pipe(dest("build/styles"));
+    .pipe(concat("style.min.css"))
+    .pipe(sass({ outputStyle: "compressed" }))
+    .pipe(dest("build/css"))
+    .pipe(browserSync.stream());
 };
 
 const buildHTML = () => {
   console.log("PUG Compile");
 
-  return src("app/pages/*.pug").pipe(pug()).pipe(dest("build/"));
+  return src("app/pages/*.pug")
+    .pipe(pug())
+    .pipe(dest("build/"))
+    .pipe(browserSync.stream());
 };
 
 const watcher = () => {
@@ -39,22 +42,5 @@ const buildSurge = () => {
   });
 };
 
-function buildSprites() {
-  src("**/*.svg", { cwd: "app/assets/" })
-    .pipe(
-      svgSprite({
-        mode: {
-          css: {
-            render: {
-              css: true,
-            },
-          },
-        },
-      })
-    )
-    .pipe(dest("build/assets/"));
-}
-
 exports.default = series(buildCSS, buildHTML, watcher);
 exports.surge = buildSurge;
-exports.sprites = buildSprites
